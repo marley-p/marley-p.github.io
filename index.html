@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jack Marley-Payne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FAFAF8;
+  --surface:#F3F2EE;
+  --surface2:#ECEAE5;
+  --ink:#0E0E0C;
+  --ink-mid:#4A4844;
+  --ink-light:#8A8782;
+  --accent:#7A5C2E;
+  --accent2:#3A5F75;
+  --rule:#D8D5CE;
+  --ff-display:'Barlow Condensed',system-ui,sans-serif;
+  --ff-body:'Barlow',system-ui,sans-serif;
+  --ff-serif:'EB Garamond',Georgia,serif;
+  --max-w:780px;
+  --pad-x:clamp(1.5rem,5vw,3.5rem);
+  scroll-behavior:smooth;
+}
+html{font-size:16px}
+body{background:var(--bg);color:var(--ink);font-family:var(--ff-body);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+#nav{position:sticky;top:0;z-index:100;padding:1.1rem var(--pad-x);background:rgba(250,250,248,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.nav-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-name{font-family:var(--ff-display);font-size:1rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink)}
+.nav-links{list-style:none;display:flex;gap:2rem}
+.nav-links a{font-size:0.68rem;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-mid);transition:color 0.2s}
+.nav-links a:hover{color:var(--accent)}
+
+/* HERO */
+#hero{display:flex;align-items:flex-end;position:relative;overflow:hidden;border-bottom:1px solid var(--rule)}
+.hero-inner{max-width:var(--max-w);margin:0 auto;width:100%;position:relative;animation:fadeUp 0.9s ease both}
+.hero-name{font-family:var(--ff-display);font-size:clamp(3.8rem,10vw,5.5rem);font-weight:700;line-height:0.95;letter-spacing:0.02em;text-transform:uppercase;color:var(--ink);margin-bottom:2rem}
+
+/* SECTIONS */
+section{padding:5rem var(--pad-x);border-top:1px solid var(--rule)}
+section:nth-child(even){background:var(--bg)}
+.section-inner{max-width:var(--max-w);margin:0 auto}
+.section-label{font-size:0.62rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent)}
+.section-heading{font-family:var(--ff-display);font-size:clamp(2rem,4vw,2.2rem);font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink);margin-bottom:1.75rem;line-height:1.05}
+.section-header-row{margin-bottom:2.5rem}
+.section-header-row .section-label{display:block;margin-bottom:0.6rem}
+
+/* ABOUT */
+.about-bio p{color:var(--ink-mid);margin-bottom:1.2rem;font-size:0.97rem;line-height:1.85}
+.about-bio strong{color:var(--ink);font-weight:500}
+
+/* PUBLICATIONS */
+.pub-list{display:flex;flex-direction:column}
+.pub-item{padding:2rem 0;border-bottom:1px solid var(--rule)}
+.pub-year{font-family:var(--ff-display);font-size:0.7rem;font-weight:600;letter-spacing:0.12em;color:var(--ink-light)}
+.pub-title{font-family:var(--ff-serif);font-size:1.25rem;font-weight:400;line-height:1.45;color:var(--ink);margin-bottom:0.35rem;max-width:68ch}
+.pub-venue{font-size:0.82rem;color:var(--ink-light);margin-bottom:0.85rem;font-style:normal;font-family:var(--ff-serif)}
+.pub-abstract{font-size:0.88rem;color:var(--ink-mid);line-height:1.78;max-width:68ch;margin-bottom:0.9rem}
+.pub-links{display:flex;gap:1.5rem}
+.pub-link{font-family:var(--ff-display);font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid transparent;transition:border-color 0.2s}
+.pub-link:hover{border-color:var(--accent)}
+
+/* CONTACT */
+.contact-inner{text-align:left;max-width:660px;margin:0 auto}
+.contact-inner .section-label{display:block;margin-bottom:0.75rem}
+.contact-inner .section-heading{margin-bottom:1rem}
+.contact-lede{color:var(--ink-mid);font-size:0.97rem;line-height:1.8;margin-bottom:2.75rem}
+.contact-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:transparent;border:none;text-align:left}
+.contact-item{background:var(--bg);padding:1.35rem;display:flex;flex-direction:column;gap:0.3rem;transition:background 0.2s}
+.contact-item:hover{background:var(--surface2)}
+.contact-item-label{font-family:var(--ff-display);font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-light)}
+.contact-item-value{font-family:var(--ff-serif);font-size:1rem;color:var(--accent)}
+
+/* FOOTER */
+footer{padding:1.75rem var(--pad-x);border-top:1px solid var(--rule)}
+.footer-inner{max-width:var(--max-w);margin:0 auto;display:flex;justify-content:space-between;font-family:var(--ff-display);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:700px){
+  .nav-links{gap:1.25rem}
+  .footer-inner{flex-direction:column;gap:0.5rem}
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <span class="nav-name">Jack Marley-Payne</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="hero" style="min-height:0;padding-top:7.5rem;padding-bottom:1.5rem">
+  <div class="hero-inner">
+    <h1 class="hero-name">Jack Marley-Payne</h1>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <h2 class="section-heading">About</h2>
+    <div class="about-bio">
+      <p>I am director of research at Financial Life Cycle Education, where I research finance, education and equity--and the interactions between them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-inner">
+    <h2 class="section-heading">Research</h2>
+    <div class="pub-list">
+
+      <article class="pub-item">
+        <h3 class="pub-title">Exploring AI Responses to Personal Finance Questions: A Comparative Analysis of LLM Behavior</h3>
+        <p class="pub-venue"><span class="pub-year">2025</span></p>
+        <p class="pub-abstract">This study analyzes how four major large language models — ChatGPT, Claude, Grok, and Gemini — respond to personal finance questions. The goal is to evaluate their effectiveness of the responses as financial advice given to the typical non-expert user. </p>
+        <div class="pub-links">
+          <a href="assets/pdfs/marley-payne-ai-financial-advice.pdf" target="_blank" rel="noopener" class="pub-link">PDF →</a>
+        </div>
+      </article>
+
+      <article class="pub-item">
+        <h3 class="pub-title">Is Answering "Don't Know" Better Than Answering Incorrectly in Financial Literacy Tests? Differentiating Incorrect and Don't Know Responses When Predicting Financial Behaviors</h3>
+        <p class="pub-venue">Journal of Financial Counseling and Planning · <span class="pub-year">2025</span></p>
+        <p class="pub-abstract">This study investigates the implications of answering a financial question incorrectly when one has the option to select "don't know." Using data from the 2021 National Financial Capability Survey, we find that providing an incorrect response rather than selecting "don't know" is associated with an increased likelihood of engaging in both positive and negative financial behaviors, including risky investment behavior — potentially reflecting a tendency toward overconfidence.</p>
+        <div class="pub-links">
+          <a href="assets/pdfs/marley-payne-davidson-dont-know.pdf" target="_blank" rel="noopener" class="pub-link">PDF →</a>
+          <a href="https://connect.springerpub.com/content/sgrjfcp/early/2025/11/12/jfcp-2024-0053.abstract" target="_blank" rel="noopener" class="pub-link">Abstract →</a>
+        </div>
+      </article>
+
+      <article class="pub-item">
+        <h3 class="pub-title">The Roles of Math and Financial Literacy on Financial Behavior</h3>
+        <p class="pub-venue">Journal of Financial Literacy and Wellbeing · <span class="pub-year">2025</span></p>
+        <p class="pub-abstract">Using nationally representative survey data, this brief examines the joint and independent roles of financial and math knowledge in predicting financial behaviors. High levels of both forms of knowledge were associated with better outcomes than either alone, suggesting the two are complementary components of financial capability.</p>
+        <div class="pub-links">
+          <a href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/201765236C587DE5205A5BC22AA8CD1E/S275332122510004Xa.pdf/roles_of_math_and_financial_literacy_on_financial_behavior.pdf" target="_blank" rel="noopener" class="pub-link">PDF →</a>
+        </div>
+      </article>
+
+      <article class="pub-item">
+        <h3 class="pub-title">The Financial Experiences of Transgender Americans: Findings from a National Probability Sample</h3>
+        <p class="pub-venue">Consumer Interests Annual, Vol. 71 · <span class="pub-year">2025</span></p>
+        <p class="pub-abstract">Drawing on the TransPop Survey — the first national probability sample of transgender Americans — this study finds that transgender people are significantly more likely to exhibit indicators of financial vulnerability than the general population, and that gender-based variation in financial outcomes within the transgender community does not mirror patterns seen in the wider population.</p>
+        <div class="pub-links">
+          <a href="https://www.consumerinterests.org/assets/docs/CIA/CIA2025/MarleypayneJackCIA2025.pdf" target="_blank" rel="noopener" class="pub-link">PDF →</a>
+        </div>
+      </article>
+
+      <article class="pub-item">
+        <h3 class="pub-title">An Ameliorative Analysis of the Concept of Education</h3>
+        <p class="pub-venue">Educational Philosophy and Theory · <span class="pub-year">2022</span></p>
+        <p class="pub-abstract">Applies ameliorative analysis — a framework from philosophy of language — to the concept of education. Argues that egalitarian goals are better served by a narrower concept of education tightly connected to formal schooling, which avoids muddying other aspects of the pursuit of social justice.</p>
+        <div class="pub-links">
+          <a href="assets/pdfs/marley-payne-ameliorative-education.pdf" target="_blank" rel="noopener" class="pub-link">PDF →</a>
+          <a href="https://journals.sagepub.com/doi/abs/10.1177/14778785211062580" target="_blank" rel="noopener" class="pub-link">Abstract →</a>
+        </div>
+      </article>
+
+      <article class="pub-item">
+        <h3 class="pub-title">Rethinking Nature and Nurture in Education</h3>
+        <p class="pub-venue">Journal of Philosophy of Education, 55(1) · <span class="pub-year">2021</span></p>
+        <p class="pub-abstract">Argues that education debates suffer from a naïve understanding of nature versus nurture. Proposes a more rigorous framework that examines individual reactions across a range of educational environments, with implications for questions of educational justice and fair treatment of students.</p>
+        <div class="pub-links">
+          <a href="assets/pdfs/marley-payne-nature-nurture-education.pdf" target="_blank" rel="noopener" class="pub-link">PDF →</a>
+          <a href="https://academic.oup.com/jope/article-abstract/55/1/143/6821493" target="_blank" rel="noopener" class="pub-link">Abstract →</a>
+        </div>
+      </article>
+
+      <article class="pub-item">
+        <h3 class="pub-title">Should Political Leaders Be Highly Educated?</h3>
+        <p class="pub-venue">Journal of Applied Philosophy · <span class="pub-year">2021</span></p>
+        <p class="pub-abstract">Challenges the liberal view that elite education is a virtue of political leaders. Argues that having the highly educated disproportionately represented in political office is incompatible with egalitarian democracy, as it systematically excludes the working class from full political participation.</p>
+        <div class="pub-links">
+          <a href="assets/pdfs/marley-payne-political-leaders-education.pdf" target="_blank" rel="noopener" class="pub-link">PDF →</a>
+          <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/japp.12621" target="_blank" rel="noopener" class="pub-link">Abstract →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner contact-inner">
+    <h2 class="section-heading">Contact</h2>
+    <p class="contact-lede">If you have questions about my research or ideas for future projects, get in touch.</p>
+    <div class="contact-links">
+      <a href="mailto:jack.marleypayne@gmail.com" class="contact-item">
+        <span class="contact-item-label">Email</span>
+        <span class="contact-item-value">jack.marleypayne@gmail.com</span>
+      </a>
+      <a href="https://www.linkedin.com/in/jackmarleypayne/" target="_blank" rel="noopener" class="contact-item">
+        <span class="contact-item-label">LinkedIn</span>
+        <span class="contact-item-value">Profile →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span>© <s
